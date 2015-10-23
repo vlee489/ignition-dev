@@ -1,21 +1,24 @@
-#Updater
+# Updater and git-update
 
-This is a way to update Ignition itself over the air, does nothing else. This doesn't update the emulators.
+This new update system allows you to update Igntion form a webserver or from a git repository like github.
 
-This is a backbone and still needs a front end in Ignition itself to take advantage of the update script.
+## Command line updater
+Coming soon
 
-###To use place the updater folder in /opt/.
+## Updater.sh
+!Version 5.0 not complete!
 
-    bash /opt/updater/update.sh
+Use version 4.1 if really needed, found in the "Old" folder
 
-###You Need to change the platform for each platform. E.g. Pi1 or Pi2. This is done by changing the platform name on line 28.
+Documentation Coming soon
 
-#####To use this properly the node_modlules requires a file named check.txt to allow the Updater to check if the files have been copied properly!
+## git-update.sh
+Do not place update script in the same directory as Igntion to avoid possible problems.
 
-###!Requires root privileges to be able to write to /opt/!
+This bash script can be run using
 
-To use it there need to be a way for the end user to be notified of an update and needs a way to stop Ignition before the update can take place.
+#### bash git-update.sh
 
-This script is configured to use wget to grab a zip file. Then it unzips the file and places it into place.
+You will may need Root access (sudo) if you are updating Igntion from a directory that requires root access.
 
-This update script is by Vincent Lee/vlee489  
+You can change the branch it updates from by adding the branch name onto the end of line 31 if needed.
