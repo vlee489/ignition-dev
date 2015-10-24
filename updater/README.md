@@ -15,10 +15,12 @@ Documentation Coming soon
 ## git-update.sh
 Do not place update script in the same directory as Igntion to avoid possible problems.
 
-This bash script can be run using
+This bash script can be run using either
 
 #### bash git-update.sh
+or
+#### bash git-update.sh --nightly
+
+Adding --nightly will update Igntion from the nightly branch stable branch.
 
 You will may need Root access (sudo) if you are updating Igntion from a directory that requires root access.
-
-You can change the branch it updates from by adding the branch name onto the end of line 31 if needed.
