@@ -7,16 +7,16 @@
 #Git update
 #Version 2.0
 
-#May need to be exicuted with root privlages.
-#Depending on where Igntion's files are held and if
+#May need to be executed with root privlages.
+#Depending on where Ignition's files are held and if
 #that directory needs Root to access
 
 #Shortcuts
 #------------------------
 #Git repos used to update
-GitRepositoryAdress="https://github.com/alexjstubbs"
+GitRepositoryaddress="https://github.com/alexjstubbs"
 BaseRepositoryName="ignition-dev"
-#Where Igntion is stored and it's name
+#Where Ignition is stored and it's name
 Directory="/opt"
 IgnitionName="ignition"
 #Defines commands used by the updater
@@ -33,11 +33,11 @@ if [ ! -z "$1" ]
             echo "Starting in 3 seconds"
             sleep 3
             cd $Directory || exit
-            echo "Removing Igntion Install"
+            echo "Removing Ignition Install"
             rm -rf ignition
             clear
             echo "Installing Ignition"
-            git clone -b nightly $GitRepositoryAdress/$BaseRepositoryName
+            git clone -b nightly $GitRepositoryaddress/$BaseRepositoryName
         else
             clear
             echo "Updating from Git Repository"
@@ -61,11 +61,11 @@ if [ ! -z "$1" ]
           echo "Starting in 3 seconds"
           sleep 3
           cd $Directory || exit
-          echo "Removing Igntion Install"
+          echo "Removing Ignition Install"
           rm -rf ignition
           clear
           echo "Installing Ignition"
-          git clone -b stable $GitRepositoryAdress/$BaseRepositoryName
+          git clone -b stable $GitRepositoryaddress/$BaseRepositoryName
       else
           clear
           echo "Updating from Git Repository"
