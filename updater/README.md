@@ -24,3 +24,14 @@ or
 Adding --nightly will update Igntion from the nightly branch stable branch.
 
 You will may need Root access (sudo) if you are updating Igntion from a directory that requires root access.
+
+## Reinstalling using git-update.sh
+You can reinstall Ignition using it git-update.sh by using commands
+
+#### bash git-update.sh --reinstall
+or
+#### bash git-update.sh --nightly --reinstall
+
+Adding --nightly will grab the nightly version of Ignition.
+
+if you haven't added --nightly you will reinstall from the stable branch.
