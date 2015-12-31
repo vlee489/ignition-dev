@@ -4,43 +4,69 @@
 #See LICENSE file for copyright and license details
 #Part of Ignition http://ignition.io
 
-#Version 5.0
+#Version 6.0
 
-#Needs to be exicuted with root privlages.
+#May need to be exicuted with root privlages.
+#Root maybe required depending on where Ignition is stores.
 
-#Shortcuts
-#defines place where Ignition is stored.
+#Constants
 #------------------------
-#Defines the Platform the it needs to update from
-Platform="Pi2"
-#Build is for either Stable/Nighly
-Build="Stable"
-#Defines where files are stored
-Base="/opt/"
-Ignition="/opt/ignition/"
-#Place where the updater script and temp files are stored.
-Updater="/opt/updater"
-Updates="/opt/updater/updates/"
-#Github repos used to update
+Directory="/opt"
+IgnitionName="ignition"
+#Github repos used to update (Not needed)
 GitRepositoryBase="https://github.com/alexjstubbs"
 BaseRepositoryName="ignition-dev"
-#Used for updating from a zip file from the web.
-FileStore="http://ignition.vlee.me.uk"
-UpdateFile="ignition.zip"
-#Used for fixing the Ignition Directory if it fails to install correctly
-FixStore="http://ignition.vlee.me.uk"
-FixerFile="fixer.zip"
-Fixer="/opt/updater/fixer"
+#------------------------
+#Colours
+#------------------------
+red=`tput setaf 1`
+green=`tput setaf 2`
+blue=`tput setaf 4`
+reset=`tput sgr0`
+#------------------------
 
-clear
-echo "Do not press CTRL + C Or You May Break You instillation Of Ignition!"
-echo "Starting update in 3 seconds!"
-sleep 3
-cd $Updater
-#Makes a directory to store the updates and changes directory into it.
-mkdir updates
-cd updates
-#Removes the ignition  zip file and directory if it already exsitsts.
-rm -rf ignition
-rm -rf ignition.zip
-#Goes to the update server to grab the newest version and unzips it.
+
+while test $# -gt 0; do
+        case "$1" in
+                -h|--help)
+                        echo "The Nexus Updater 2.0"
+                        echo "options:"
+                        echo "-h | --help                show brief help"
+                        echo "-s | --stable               Updates Igntion for the stable branch"
+                        echo "-n | --nightly              Update Ignition from the nighly branch"
+                        exit 0
+                        ;;
+       --stable|-s)
+                        clear
+                        echo "${green}Updading from Git Repository${reset}"
+                        echo "${green}Updating from Stable branch${reset}"
+                        echo "${red}Do NOT turn off${reset}"
+                        #If the directry it is trying to change
+                        #to doesn't exsitst
+                        #then it will exit the script.
+                        cd $Directory/$IgnitionName || exit
+                        #Change "stable" if another branch is desiered
+                        git pull stable
+                        echo "${green}Update complete!${reset}"
+                        exit 0
+                        ;;
+      --nightly|-n)
+                        clear
+                        echo "${green}Updating from Git Repository${reset}"
+                        echo "${blue}Updating from Nightlies branch${reset}"
+                        echo "${red}Do NOT turn off${reset}"
+                        #If the directry it is trying to change
+                        #to doesn't exsitst
+                        #then it will exit the script.
+                        cd $Directory/$IgnitionName || exit
+                        #Change "nightly" if another branch is desiered
+                        git pull nightly
+                        echo "${green}Update complete!${reset}"
+                        exit 0
+                        ;;
+                *)
+                        echo "${red}Try 'update.sh --help' for help${reset}"
+                        break
+                        ;;
+        esac
+done

@@ -1,26 +1,15 @@
-# Updater and git-update
+# Updater
 
 This new update system allows you to update Igntion form a webserver or from a git repository like github.
 
-## Command line updater
-Coming soon
+## Usage
 
-## Updater.sh
-!Version 5.0 not complete!
+There are currently 2 options to update Igntion.
 
-Use version 4.1 if really needed, found in the "Old" folder
+    update.sh --stable
 
-Documentation Coming soon
+##### This will update Igntion form the stable branch.
 
-## git-update.sh
-Do not place update script in the same directory as Igntion to avoid possible problems.
+    update.sh --nightly
 
-This bash script can be run using either
-
-#### bash git-update.sh
-or
-#### bash git-update.sh --nightly
-
-Adding --nightly will update Igntion from the nightly branch stable branch.
-
-You will may need Root access (sudo) if you are updating Igntion from a directory that requires root access.
+##### This will update Igntion form the nightly branch.
