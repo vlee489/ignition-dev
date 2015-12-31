@@ -1,5 +1,6 @@
 #Ignition
 ###### A modern social retro gaming OS designed for your living room.
+[![Dependency Status](https://gemnasium.com/vlee489/ignition-dev.svg)](https://gemnasium.com/vlee489/ignition-dev)
 
 --
 
